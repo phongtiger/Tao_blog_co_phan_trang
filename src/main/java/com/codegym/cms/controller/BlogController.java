@@ -69,13 +69,13 @@ public class BlogController {
             return modelAndView;
 
         }else {
-            ModelAndView modelAndView = new ModelAndView("/error.404");
+            ModelAndView modelAndView = new ModelAndView("/blog/error.404");
             return modelAndView;
         }
     }
 
-    @PostMapping("/delete-product")
-    public String deleteBlog(@ModelAttribute("customer") Blog blog){
+    @PostMapping("/delete-blog")
+    public String deleteBlog(@ModelAttribute("blog") Blog blog){
         blogService.remove(blog.getId());
         return "redirect:blog";
     }
