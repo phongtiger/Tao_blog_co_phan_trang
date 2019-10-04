@@ -1,9 +1,9 @@
 package com.codegym.cms;
 
-import com.codegym.cms.repository.CustomerRepository;
-import com.codegym.cms.repository.imlp.CustomerRepositoryImpl;
-import com.codegym.cms.service.CustomerService;
-import com.codegym.cms.service.impl.CustomerServiceImpl;
+import com.codegym.cms.repository.BlogRepository;
+import com.codegym.cms.repository.imlp.BlogRepositoryImpl;
+import com.codegym.cms.service.BlogService;
+import com.codegym.cms.service.impl.BlogServiceImpl;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
@@ -45,13 +45,13 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
     }
 
     @Bean
-    public CustomerRepository customerRepository(){
-        return new CustomerRepositoryImpl();
+    public BlogRepository customerRepository(){
+        return new BlogRepositoryImpl();
     }
 
     @Bean
-    public CustomerService customerService(){
-        return new CustomerServiceImpl();
+    public BlogService customerService(){
+        return new BlogServiceImpl();
     }
 
 
