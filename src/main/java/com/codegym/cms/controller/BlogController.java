@@ -3,6 +3,8 @@ package com.codegym.cms.controller;
 import com.codegym.cms.model.Blog;
 import com.codegym.cms.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -10,15 +12,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
-
 @Controller
 public class BlogController {
     @Autowired
     private BlogService blogService;
     @GetMapping("/blogs")
     public ModelAndView listBlog(){
-        List<Blog> blog = blogService.findAll();
+        Iterable<Blog> blog = blogService.findAll();
         ModelAndView modelAndView = new ModelAndView("/blog/list");
         modelAndView.addObject("blog", blog);
         return modelAndView;
